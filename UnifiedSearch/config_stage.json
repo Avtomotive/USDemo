@@ -1,0 +1,16 @@
+{
+  "UnifiedSearchService": {
+    "login": "laximo",
+    "password": "E7PTGUZYa7mv",
+    "serviceUrl": "http://172.16.110.12:14020"
+  },
+  "OEMService": {
+    "login": "laximo",
+    "key": "E7PTGUZYa7mv",
+    "locale": "ru_RU"
+  },
+  "property": {
+    "hideRequests": false,
+    "default_lang": "en_US"
+  }
+}

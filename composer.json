@@ -1,0 +1,14 @@
+{
+  "autoload": {
+    "psr-4": {
+      "UnifiedSearch\\": "UnifiedSearch/"
+    }
+  },
+  "require": {
+    "laximoru/guayaquillib": "3.*",
+    "twig/twig": "3.*",
+    "guzzlehttp/guzzle": "7.*",
+    "ext-json": "*",
+    "automotive/usearch": "1.*"
+  }
+}
