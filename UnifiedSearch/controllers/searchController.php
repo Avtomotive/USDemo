@@ -50,17 +50,13 @@ class searchController extends Controller
 
         if (strlen($query) || $tags && $options && $options['tagToggler']) {
             $this->searchAvailable = true;
-            try {
-                $this->result = $us->search(
-                    $query
-                    , $autoId && $this->vehicleInfo->state == UsVehicle::STATE_SUCCESS ? $autoId : null
-                    , ($tags && $options && $options['tagToggler'] ? $tags : [])
-                    , $this->getLanguage()->getLocalization()
-                    , $skip
-                    , $size);
-            } catch (Exception $ex) {
-                print_r($ex);die;
-            }
+            $this->result = $us->search(
+                $query
+                , $autoId && $this->vehicleInfo->state == UsVehicle::STATE_SUCCESS ? $autoId : null
+                , ($tags && $options && $options['tagToggler'] ? $tags : [])
+                , $this->getLanguage()->getLocalization()
+                , $skip
+                , $size);
 
             $this->foundTags = false;
             $this->foundVendorCodes = false;
