@@ -240,10 +240,16 @@ class Controller
         return urldecode($url);
     }
 
-    public function noSpaces($name)
+    public function noSpaces($name) : string
     {
         $name = (string)$name;
         return preg_replace('/\s+/', ' ', $name);
+    }
+
+    public function filterOem($oem) : string
+    {
+        $oem = (string)$oem;
+        return preg_replace('/[^a-zа-я0-9]+/i', '', $oem);
     }
 
     public function loadTwig($tpl = '', $view = '', $vars = [], $fullHtml = true)

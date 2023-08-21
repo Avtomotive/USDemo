@@ -150,7 +150,7 @@ class unitController extends Controller
         $details = [];
         foreach ($detailsList->getParts() as $original) {
             foreach ($searchByOems->data as $part) {
-                if ($part->oem == $original->getOem() && count($part->details)) {
+                if ($this->filterOem($part->oem) == $this->filterOem($original->getOem()) && count($part->details)) {
                     foreach ($part->details as $item) {
                         $detailImageCodes[$item->oem . $item->brand] = $original->getCodeOnImage();
                         $item->amount = $this->getAttr('amount', $original->getAttributes());
