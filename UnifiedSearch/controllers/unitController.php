@@ -146,7 +146,7 @@ class unitController extends Controller
         }
 
         $us = $this->getUS();
-        $searchByOems = $us->searchByOems($autoId, $oems);
+        $searchByOems = $us->searchByOems($autoId, $oems, $this->getLanguage()->getLocalization());
         $details = [];
         foreach ($detailsList->getParts() as $original) {
             foreach ($searchByOems->data as $part) {

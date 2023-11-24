@@ -75,7 +75,7 @@ class searchController extends Controller
             $detectedVehicleIdent = $this->result->parsedRequest->getDetectedVehicleIdent();
 
             if ($detectedVehicleIdent) {
-                $identifiedVehicles = $us->vehicleIdentify($detectedVehicleIdent);
+                $identifiedVehicles = $us->vehicleIdentify($detectedVehicleIdent, $this->getLanguage()->getLocalization());
                 $this->foundedVehicles = $identifiedVehicles->data;
 
                 if ($autoInfoId) {
@@ -153,7 +153,7 @@ class searchController extends Controller
         $this->pathway->addItem($this->getLanguage()->t('SEARCH_DEMO'), $this->createUrl('search', 'show'));
         $this->pathway->addItem($vin, '');
 
-        $this->foundedVehicles = $us->vehicleIdentify($vin)->data;
+        $this->foundedVehicles = $us->vehicleIdentify($vin, $this->getLanguage()->getLocalization())->data;
         $this->query = $this->input->getString('query');
         $this->vin = $vin;
         $this->render('search', 'select.twig', true);

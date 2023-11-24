@@ -127,9 +127,9 @@
                                 {% endif %}
                                 <td>
                                     <div data-action="showAllNames"
-                                         data-names='{{ detail.detailNames|json_encode(constant('JSON_UNESCAPED_UNICODE'))|raw }}'
-                                         data-crosses='{{ detail.crossNames|json_encode(constant('JSON_UNESCAPED_UNICODE'))|raw }}'
-                                         data-offers='{{ detail.offerNames|json_encode(constant('JSON_UNESCAPED_UNICODE'))|raw }}'>
+                                         data-names='{{ detail.detailNames|json_encode(constant('JSON_UNESCAPED_UNICODE')  b-or  constant('JSON_HEX_APOS'))|raw }}'
+                                         data-crosses='{{ detail.crossNames|json_encode(constant('JSON_UNESCAPED_UNICODE')  b-or  constant('JSON_HEX_APOS'))|raw }}'
+                                         data-offers='{{ detail.offerNames|json_encode(constant('JSON_UNESCAPED_UNICODE')  b-or  constant('JSON_HEX_APOS'))|raw }}'>
                                         {% if detail.offerNames|length %}
                                             {{ detail.offerNames|join(', ')|raw }}
                                         {% else %}
@@ -169,6 +169,7 @@
                                         {% if detailIds == '' %}
                                             {% set detailIds = detail.detailId %}
                                         {% endif %}
+                                        {% set detailIds = detail.detailId %}
                                         <a href="{{ createUrl('unit', 'show', {'autoId': vehicleInfo.id, 'oem': detail.oem, 'detailIds': detailIds}) }}">
                                             {{ 'SHOW_UNIT'|t }}
                                         </a></td>
